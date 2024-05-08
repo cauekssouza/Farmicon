@@ -18,6 +18,6 @@
 
 ## Como Usar
 - Pesquisa - Inserir o nome do Remédio na barra de Pesquisa
-- Filtragem: Filtragem por Localização: Usuários podem filtrar farmácias por localização para encontrar aquelas próximas a eles.
+- Filtragem por Localização: Usuários podem filtrar farmácias por localização para encontrar aquelas próximas a eles.
 - Obter informações detalhadas sobre farmácias, tais como endereço, horário de trabalho etc.
 - Comparação – Veja os custos do remedio em diferentes lojas e determine quais das opções são mais económicas.
