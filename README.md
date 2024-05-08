@@ -1,5 +1,5 @@
 # PJBL6 :computer: :pill: :hospital:
-## Farmicon :man_student:
+## Farmicon :man_student: :pill:
 
 ## Descrição do Programa:  :pill: :pencil2:  :coffee:
 - Farmicon é um software que foi desenhado para auxiliar os moradores de Curitiba a encontrarem as farmácias com os preços mais baixos da cidade. Isso significa que, quando as pessoas utilizam o Farmicon, elas têm a possibilidade de comparar preços de medicamentos em diferentes farmácias e identificar facilmente aquelas mais baratas e mais caras.
