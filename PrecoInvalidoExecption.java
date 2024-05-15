@@ -1,4 +1,4 @@
-// Farmacia não encontrada
+// Farmacia  encontrada
 public class PrecoInvalidoExecption  extends Exception{
     public PrecoInvalidoExecption(String mensagem){
         super(mensagem);
