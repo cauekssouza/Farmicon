@@ -1,23 +1,25 @@
 # PJBL6 :computer: :pill: :hospital:
-## Farmicon :man_student: :pill:
+## Farmicon: Sua Fonte de Economia em Medicamentos em Curitiba: :man_student:  :pill:
 
 ## Descrição do Programa:  :pill: :pencil2:  :coffee:
-- Farmicon é um software que foi desenhado para auxiliar os moradores de Curitiba a encontrarem as farmácias com os preços mais baixos da cidade. Isso significa que, quando as pessoas utilizam o Farmicon, elas têm a possibilidade de comparar preços de medicamentos em diferentes farmácias e identificar facilmente aquelas mais baratas e mais caras.
+- O Farmicon é um software projetado para simplificar a busca por medicamentos com os melhores preços em Curitiba. Permitindo aos moradores comparar facilmente os preços de medicamentos em diversas farmácias, o Farmicon torna mais simples encontrar opções mais acessíveis e economizar dinheiro.
 
 ## Funcionalidades :technologist: :coffee:
-- Preço Comparando: O Farmicon compara preços de medicamentos em diversas farmácias em Curitiba.
+1- Comparação de Preços: O Farmicon compara os preços de medicamentos em várias farmácias em Curitiba, fornecendo aos usuários informações atualizadas sobre as melhores ofertas disponíveis.
 
-- Identificando Farmácia: Dá informações sobre as farmácias que oferecem medicamento procurado.
+2 - Identificação de Farmácias: Fornece informações detalhadas sobre as farmácias que oferecem o medicamento procurado, incluindo endereço, horário de funcionamento e outras informações relevantes.
 
-- Filtragem por Localização: Usuários podem filtrar farmácias por localização para encontrar aquelas próximas a eles.
+3 - Filtragem por Localização: Os usuários podem filtrar as farmácias por localização para encontrar aquelas mais próximas a eles, facilitando a escolha da opção mais conveniente.
 
-- Avaliações e Comentários: Permitir aos usuários deixar avaliações e comentários sobre as drogarias e o preço dos remédios.
+4 - Avaliações e Comentários: Os usuários podem deixar avaliações e comentários sobre as farmácias e os preços dos medicamentos, compartilhando suas experiências e ajudando outros usuários a tomar decisões informadas.
 
-- Atualização dos Preços: Os preços são atualizados regularmente para garantir sua precisão e atualidade constantes nas informações.
+5 - Atualização de Preços: Os preços são regularmente atualizados para garantir que as informações fornecidas aos usuários sejam precisas e atualizadas.
   
 
 ## Como Usar :office_worker: :technologist:
-- Pesquisa - Inserir o nome do Remédio na barra de Pesquisa
-- Filtragem por Localização: Usuários podem filtrar farmácias por localização para encontrar aquelas próximas a eles.
-- Obter informações detalhadas sobre farmácias, tais como endereço, horário de trabalho etc.
-- Comparação – Veja os custos do remedio em diferentes lojas e determine quais das opções são mais económicas.
+1- Pesquisa: Insira o nome do medicamento na barra de pesquisa para encontrar as opções disponíveis.
+2 - Filtragem por Localização: Os usuários podem filtrar as farmácias por localização para encontrar aquelas próximas a eles, garantindo conveniência na escolha.
+3 - Obter Informações Detalhadas: Visualize informações detalhadas sobre as farmácias, como endereço, horário de funcionamento, etc., para tomar uma decisão informada.
+4 - Comparação de Preços: Compare os custos do medicamento em diferentes farmácias e determine qual oferece a opção mais econômica.
+
+Com o Farmicon, economizar em medicamentos nunca foi tão fácil. Experimente hoje mesmo e descubra as melhores ofertas em sua área!
