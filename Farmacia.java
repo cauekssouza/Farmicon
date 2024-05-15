@@ -1,39 +1,40 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Farmacia {
+public class Farmacia  extends PrecoInvalidoExecption{
     private String nome;
+    private String endereco;
     private List<Remedio> listaRemedio;
 
-    // Construtor
-    public Farmacia(String nome) {
-        this.nome = nome;
+    // Constructor
+    public Farmacia(String nome, String endereco) {
+        super(endereco);
         this.listaRemedio = new ArrayList<>();
     }
 
-    // Método para adicionar lista de remédios na lista
+    // Method to add medicine to pharmacy's inventory
     public void adicionarRemedio(Remedio remedio) {
         listaRemedio.add(remedio);
     }
 
-    // Método para obter o preço do Remédio
-    public double obterPreçoDoRemedio(String nome) {
+    public double obterPrecoDoRemedio(String nomeRemedio) throws RemedioNaoEncontradoException {
         for (Remedio remedio : listaRemedio) {
-            if (remedio.getNome().equals(nome)) {
+            if (remedio.getNome().equalsIgnoreCase(nomeRemedio)) {
                 return remedio.getPreço();
             }
         }
-        throw new FarmaciaNãoEncontradaException("Remédio não encontrado na farmácia: " + nome);
+        throw new RemedioNaoEncontradoException("Remédio não encontrado na farmácia: " + nomeRemedio);
     }
 
-    // Métodos Adicionais para farmacia
-    public void adicionarNOCarrinho(Remedio remedio) {
-        // Implementação para adicionar no carrinho
+    // Method to get pharmacy's name
+    public String getNome() {
+        return nome;
     }
 
-    public void localizacaoDaFarmacia() {
-        for (Remedio remedio : listaRemedio) {
-            System.out.println("Medicamento: " + remedio.getNome() + ", Localização: " + remedio.getLocalizacao());
-        }
+    // Method to get pharmacy's address
+    public String getEndereco() {
+        return endereco;
     }
+
+    
 }
