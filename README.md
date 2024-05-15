@@ -18,8 +18,11 @@
 
 ## Como Usar :office_worker: :technologist:
 1- Pesquisa: Insira o nome do medicamento na barra de pesquisa para encontrar as opções disponíveis.
+
 2 - Filtragem por Localização: Os usuários podem filtrar as farmácias por localização para encontrar aquelas próximas a eles, garantindo conveniência na escolha.
+
 3 - Obter Informações Detalhadas: Visualize informações detalhadas sobre as farmácias, como endereço, horário de funcionamento, etc., para tomar uma decisão informada.
+
 4 - Comparação de Preços: Compare os custos do medicamento em diferentes farmácias e determine qual oferece a opção mais econômica.
 
 Com o Farmicon, economizar em medicamentos nunca foi tão fácil. Experimente hoje mesmo e descubra as melhores ofertas em sua área!
