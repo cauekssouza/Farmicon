@@ -26,3 +26,11 @@
 4 - Comparação de Preços: Compare os custos do medicamento em diferentes farmácias e determine qual oferece a opção mais econômica.
 
 Com o Farmicon, economizar em medicamentos nunca foi tão fácil. Experimente hoje mesmo e descubra as melhores ofertas em sua área!
+
+
+
+
+
+
+
+![Captura de tela 2024-05-21 165610](https://github.com/cauekssouza/PJBL6/assets/107008671/16205cfa-1ef2-433c-8cd2-65e74df27d45)
