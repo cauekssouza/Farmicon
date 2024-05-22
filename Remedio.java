@@ -1,3 +1,4 @@
+// Classe Remedio e seus Atributos
 public class Remedio {
     private String nome;
     private double preco;
