@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// Classe Farmacia e seus Atributos
 public class Farmacia {
     private String nome;
     private String endereco;
