@@ -1,3 +1,4 @@
+// Classe Cliente e Seus Atributos
 public abstract class Cliente {
     private String nome;
     private String endereco;
@@ -8,7 +9,7 @@ public abstract class Cliente {
     private double pix;
 
 
-    // Método Construtor
+    // Método Construtor do Cliente
     public Cliente(String nome, String endereco, int telefone, double CPF, String receita, String boleto, double pix){
         this.nome = nome;
         this.endereco = endereco;
@@ -72,4 +73,9 @@ public abstract class Cliente {
     // Método abstrato para ser implementado nas subclasses
     public abstract void realizarCompra();
     public abstract void compararPreco();
+    public abstract void verificarPagamento();
+    public abstract void deixarComentários();
+    public abstract void avaliarProduto();
+    public abstract void avaliarAtendente();
+    public abstract void avaliarLoja();
 }
