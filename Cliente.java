@@ -1,22 +1,24 @@
+/ Classe Abstrata do Cliente
 public abstract class Cliente {
+    // Atributos da classe
     private String nome;
     private String endereco;
-    private int telefone;
+    private String telefone;
     private String CPF;
     private String receita;
-    private String boleto;
-    private double pix;
+    private int mtPagamento;
 
-    public Cliente(String nome, String endereco, int telefone, String CPF, String receita, String boleto, double pix) {
+    // Método Cliente
+    public Cliente(String nome, String endereco, String telefone, String CPF, String receita, int mtPagamento) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
         this.CPF = CPF;
         this.receita = receita;
-        this.boleto = boleto;
-        this.pix = pix;
+        this.mtPagamento = mtPagamento;
     }
 
+    /*Getters e Setters */
     public String getNome() {
         return nome;
     }
@@ -33,11 +35,11 @@ public abstract class Cliente {
         this.endereco = endereco;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -57,22 +59,17 @@ public abstract class Cliente {
         this.receita = receita;
     }
 
-    public String getBoleto() {
-        return boleto;
+    public int getmtPagamento() {
+        return mtPagamento;
     }
 
-    public void setBoleto(String boleto) {
-        this.boleto = boleto;
+    public void setmtPagamento(int mtPagamento) {
+        this.mtPagamento = mtPagamento;
     }
 
-    public double getPix() {
-        return pix;
-    }
 
-    public void setPix(double pix) {
-        this.pix = pix;
-    }
 
+    // Métodos Abstratos
     public abstract void realizarCompra();
     public abstract void compararPreco();
     public abstract void verificarPagamento();
@@ -81,4 +78,3 @@ public abstract class Cliente {
     public abstract void avaliarAtendente();
     public abstract void avaliarLoja();
 }
-
