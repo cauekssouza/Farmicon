@@ -1,5 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -23,15 +21,17 @@ public class Main {
         exibirInformacoesFarmacia(farmacia2);
 
         // Exemplo de cliente
-        Cliente cliente1 = new ClienteConcreto("João", "Av. Principal, 456", "(41) 99999-9999", "123.456.789-00",
-                "Receita XYZ", 1);
+        Cliente cliente1 = new ClienteConcreto("João", "Av. Principal, 456", "(41) 99999-9999", "123.456.789-00", "Receita de", 1);
+
         // Realizando operações de cliente (exemplo)
         cliente1.realizarCompra();
         cliente1.compararPreco();
 
         // Exemplo de avaliação
-        Avaliação avaliacao = new Avaliação("Maria", farmacia1, "Ótimo atendimento!", 5);
-        exibirAvaliacao(avaliacao);
+        Avaliação avaliação1 = new Avaliação("Maria", farmacia1, "Ótimo atendimento!", 5);
+        Avaliação avaliação2 = new Avaliação("Pedro", farmacia2, "Preços muito altos.", 3);
+        farmacia1.adicionarAvaliacao(avaliação1);
+        farmacia2.adicionarAvaliacao(avaliação2);
 
         // Menu de interação
         boolean sair = false;
@@ -48,6 +48,9 @@ public class Main {
                     compararPrecos(farmacia1, farmacia2);
                     break;
                 case 3:
+                    exibirComentarios(farmacia1, farmacia2);
+                    break;
+                case 4:
                     System.out.println("Saindo do programa.");
                     sair = true;
                     break;
@@ -64,7 +67,8 @@ public class Main {
         System.out.println("\n--- Menu ---");
         System.out.println("1. Buscar Farmácia");
         System.out.println("2. Comparar Preços");
-        System.out.println("3. Sair");
+        System.out.println("3. Ver Comentários");
+        System.out.println("4. Sair");
         System.out.print("Escolha uma opção: ");
     }
 
@@ -82,14 +86,14 @@ public class Main {
     }
 
     private static Farmacia buscarFarmaciaPorNome(String nomeFarmacia) {
-        // Simulação de busca de farmácia pelo nome (pode ser implementado com uma lista
-        // de farmácias)
+        // Simulação de busca de farmácia pelo nome (pode ser implementado com uma lista de farmácias)
         // Aqui estamos simulando com as duas farmácias criadas no main
-        Map<String, Farmacia> farmacias = new HashMap<>();
-        farmacias.put("Pague Menos",
-                new Farmacia("Pague Menos", "Av. do Batel, 1340 - Batel, Curitiba", "07:00 - 22:00"));
-        farmacias.put("Panvel", new Farmacia("Panvel", "R. Benjamin Lins, 680 - Loja 01 - Batel, Curitiba", "24:00"));
-        return farmacias.get(nomeFarmacia);
+        if (nomeFarmacia.equalsIgnoreCase("Pague Menos")) {
+            return new Farmacia("Pague Menos", "Av. do Batel, 1340 - Batel, Curitiba", "07:00 - 22:00");
+        } else if (nomeFarmacia.equalsIgnoreCase("Panvel")) {
+            return new Farmacia("Panvel", "R. Benjamin Lins, 680 - Loja 01 - Batel, Curitiba", "24:00");
+        }
+        return null;
     }
 
     private static void compararPrecos(Farmacia farmacia1, Farmacia farmacia2) {
@@ -122,10 +126,16 @@ public class Main {
         }
     }
 
-    private static void exibirAvaliacao(Avaliação avaliação) {
-        System.out.println(
-                "\nAvaliação de " + avaliação.getUsuario() + " para " + avaliação.getFarmacia().getNome() + ":");
-        System.out.println("Comentário: " + avaliação.getComentario());
-        System.out.println("Nota: " + avaliação.getNota());
+    private static void exibirComentarios(Farmacia... farmacias) {
+        System.out.println("\n--- Comentários ---");
+        for (Farmacia farmacia : farmacias) {
+            System.out.println("Farmácia: " + farmacia.getNome());
+            System.out.println("Avaliações:");
+            for (Avaliação avaliação : farmacia.getAvaliacoes()) {
+                System.out.println("- Avaliado por: " + avaliação.getUsuario());
+                System.out.println("  Comentário: " + avaliação.getComentario());
+                System.out.println("  Nota: " + avaliação.getNota());
+            }
+        }
     }
 }
