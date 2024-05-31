@@ -10,6 +10,7 @@ public class Avaliação {
         this.comentario = comentario;
         this.nota = nota;
     }
+
     public String getUsuario() {
         return usuario;
     }
