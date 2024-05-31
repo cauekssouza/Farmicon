@@ -6,16 +6,14 @@ public abstract class Cliente {
     private String telefone;
     private String CPF;
     private String receita;
-    private int mtPagamento;
 
     // Método Cliente
-    public Cliente(String nome, String endereco, String telefone, String CPF, String receita, int mtPagamento) {
+    public Cliente(String nome, String endereco, String telefone, String CPF, String receita) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
         this.CPF = CPF;
         this.receita = receita;
-        this.mtPagamento = mtPagamento;
     }
 
     /* Getters e Setters */
@@ -59,20 +57,8 @@ public abstract class Cliente {
         this.receita = receita;
     }
 
-    public int getmtPagamento() {
-        return mtPagamento;
-    }
-
-    public void setmtPagamento(int mtPagamento) {
-        this.mtPagamento = mtPagamento;
-    }
-
     // Métodos Abstratos
-    public abstract void realizarCompra();
-
     public abstract void compararPreco();
-
-    public abstract void verificarPagamento();
 
     // Novos métodos concretos
     public void deixarComentarios() {
