@@ -7,4 +7,3 @@ public class FarmaciaRede extends Farmacia {
 
     // Métodos específicos para Farmácias de Rede, se houver
 }
-

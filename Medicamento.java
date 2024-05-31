@@ -15,6 +15,10 @@ public class Medicamento {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public double getPreco() {
         return preco;
     }
@@ -27,7 +31,15 @@ public class Medicamento {
         return farmacia;
     }
 
+    public void setFarmacia(Farmacia farmacia) {
+        this.farmacia = farmacia;
+    }
+
     public String getLocalizacao() {
         return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
     }
 }

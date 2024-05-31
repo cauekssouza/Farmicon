@@ -9,17 +9,16 @@ public class Main {
 
         System.out.println("---- Farmicon ----");
 
-        // Exemplo de uso das classes do projeto Farmicon
         // Criando farmácias e medicamentos
         Farmacia farmacia1 = new Farmacia("Pague Menos", "Av. do Batel, 1340 - Batel, Curitiba", "07:00 - 22:00");
         farmacia1.adicionarMedicamento(new Medicamento("Paracetamol", 10.50, farmacia1, "Corredor A"));
         farmacia1.adicionarMedicamento(new Medicamento("Dipirona", 5.75, farmacia1, "Corredor B"));
 
-        Farmacia farmacia2 = new Farmacia("Panvel", " R. Benjamin Lins, 680 - Loja 01 - Batel, Curitiba", "24:00 ");
+        Farmacia farmacia2 = new Farmacia("Panvel", "R. Benjamin Lins, 680 - Loja 01 - Batel, Curitiba", "24:00");
         farmacia2.adicionarMedicamento(new Medicamento("Paracetamol", 11.00, farmacia2, "Corredor C"));
         farmacia2.adicionarMedicamento(new Medicamento("Dipirona", 6.00, farmacia2, "Corredor D"));
 
-        // Exibindo informações da farmácia e seus medicamentos
+        // Exibindo informações das farmácias
         exibirInformacoesFarmacia(farmacia1);
         exibirInformacoesFarmacia(farmacia2);
 
@@ -31,8 +30,8 @@ public class Main {
         cliente1.compararPreco();
 
         // Exemplo de avaliação
-        Avaliação avaliação = new Avaliação("Maria", farmacia1, "Ótimo atendimento!", 5);
-        exibirAvaliacao(avaliação);
+        Avaliação avaliacao = new Avaliação("Maria", farmacia1, "Ótimo atendimento!", 5);
+        exibirAvaliacao(avaliacao);
 
         // Menu de interação
         boolean sair = false;

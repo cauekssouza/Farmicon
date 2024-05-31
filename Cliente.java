@@ -1,5 +1,4 @@
 // Classe Abstrata do Cliente
-
 public abstract class Cliente {
     // Atributos da classe
     private String nome;
