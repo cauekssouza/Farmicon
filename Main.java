@@ -21,7 +21,7 @@ public class Main {
         exibirInformacoesFarmacia(farmacia2);
 
         // Exemplo de cliente
-        Cliente cliente1 = new ClienteConcreto("João", "Av. Principal, 456", "(41) 99999-9999", "123.456.789-00", "Receita de", 1);
+        Cliente cliente1 = new ClienteConcreto("Cauê", "Avenida Sete de Setembro Batel, 5621", "(41) 992210636", "12345678911", "Receita de Paracetamol", 2);
 
         // Realizando operações de cliente (exemplo)
         cliente1.realizarCompra();
