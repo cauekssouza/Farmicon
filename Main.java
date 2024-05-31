@@ -24,8 +24,6 @@ public class Main {
         Cliente cliente1 = new ClienteConcreto("Cauê", "Avenida Sete de Setembro Batel, 5621", "(41) 992210636", "12345678911", "Receita de Paracetamol", 2);
 
         // Realizando operações de cliente (exemplo)
-        cliente1.realizarCompra();
-        cliente1.compararPreco();
 
         // Exemplo de avaliação
         Avaliação avaliação1 = new Avaliação("Maria", farmacia1, "Ótimo atendimento!", 5);
