@@ -1,4 +1,5 @@
-/ Classe Abstrata do Cliente
+// Classe Abstrata do Cliente
+
 public abstract class Cliente {
     // Atributos da classe
     private String nome;
@@ -18,7 +19,7 @@ public abstract class Cliente {
         this.mtPagamento = mtPagamento;
     }
 
-    /*Getters e Setters */
+    /* Getters e Setters */
     public String getNome() {
         return nome;
     }
@@ -67,14 +68,27 @@ public abstract class Cliente {
         this.mtPagamento = mtPagamento;
     }
 
-
-
     // Métodos Abstratos
     public abstract void realizarCompra();
+
     public abstract void compararPreco();
+
     public abstract void verificarPagamento();
-    public abstract void deixarComentarios();
-    public abstract void avaliarProduto();
-    public abstract void avaliarAtendente();
-    public abstract void avaliarLoja();
+
+    // Novos métodos concretos
+    public void deixarComentarios() {
+        System.out.println(getNome() + " está deixando comentários.");
+    }
+
+    public void avaliarProduto() {
+        System.out.println(getNome() + " está avaliando o produto.");
+    }
+
+    public void avaliarAtendente() {
+        System.out.println(getNome() + " está avaliando o atendente.");
+    }
+
+    public void avaliarLoja() {
+        System.out.println(getNome() + " está avaliando a loja.");
+    }
 }

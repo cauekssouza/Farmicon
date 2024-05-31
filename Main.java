@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -22,7 +24,8 @@ public class Main {
         exibirInformacoesFarmacia(farmacia2);
 
         // Exemplo de cliente
-      Cliente cliente1 = new ClienteConcreto("João", "Av. Principal, 456", "(41) 99999-9999", "123.456.789-00", "Receita XYZ", 1);
+        Cliente cliente1 = new ClienteConcreto("João", "Av. Principal, 456", "(41) 99999-9999", "123.456.789-00",
+                "Receita XYZ", 1);
         // Realizando operações de cliente (exemplo)
         cliente1.realizarCompra();
         cliente1.compararPreco();
@@ -80,14 +83,14 @@ public class Main {
     }
 
     private static Farmacia buscarFarmaciaPorNome(String nomeFarmacia) {
-        // Simulação de busca de farmácia pelo nome (pode ser implementado com uma lista de farmácias)
+        // Simulação de busca de farmácia pelo nome (pode ser implementado com uma lista
+        // de farmácias)
         // Aqui estamos simulando com as duas farmácias criadas no main
-        if (nomeFarmacia.equalsIgnoreCase("Farmácia XYZ")) {
-            return new Farmacia("Farmácia XYZ", "Rua das Flores, 123", "08:00 - 20:00");
-        } else if (nomeFarmacia.equalsIgnoreCase("Farmácia ABC")) {
-            return new Farmacia("Farmácia ABC", "Av. Central, 456", "09:00 - 22:00");
-        }
-        return null;
+        Map<String, Farmacia> farmacias = new HashMap<>();
+        farmacias.put("Pague Menos",
+                new Farmacia("Pague Menos", "Av. do Batel, 1340 - Batel, Curitiba", "07:00 - 22:00"));
+        farmacias.put("Panvel", new Farmacia("Panvel", "R. Benjamin Lins, 680 - Loja 01 - Batel, Curitiba", "24:00"));
+        return farmacias.get(nomeFarmacia);
     }
 
     private static void compararPrecos(Farmacia farmacia1, Farmacia farmacia2) {
@@ -121,7 +124,8 @@ public class Main {
     }
 
     private static void exibirAvaliacao(Avaliação avaliação) {
-        System.out.println("\nAvaliação de " + avaliação.getUsuario() + " para " + avaliação.getFarmacia().getNome() + ":");
+        System.out.println(
+                "\nAvaliação de " + avaliação.getUsuario() + " para " + avaliação.getFarmacia().getNome() + ":");
         System.out.println("Comentário: " + avaliação.getComentario());
         System.out.println("Nota: " + avaliação.getNota());
     }
