@@ -22,7 +22,16 @@ public class Main {
         exibirInformacoesFarmacia(farmacia2);
 
         // Exemplo de cliente
-        Cliente cliente1 = new ClienteConcreto("João", "Av. Principal, 456", "(41) 99999-9999", "123.456.789-00", "Receita XYZ", 1);
+      Cliente cliente1 = new ClienteConcreto("João", "Av. Principal, 456", "(41) 99999-9999", "123.456.789-00", "Receita XYZ", 1);
+        
+        // Exibindo as informações do cliente para verificar
+        System.out.println("Nome: " + cliente1.getNome());
+        System.out.println("Endereço: " + cliente1.getEndereco());
+        System.out.println("Telefone: " + cliente1.getTelefone());
+        System.out.println("CPF: " + cliente1.getCpf());
+        System.out.println("Receita: " + cliente1.getReceita());
+        System.out.println("ID: " + cliente1.getId());
+    }
 
         // Realizando operações de cliente (exemplo)
         cliente1.realizarCompra();
