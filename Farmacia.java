@@ -6,12 +6,17 @@ public class Farmacia {
     private String endereco;
     private String horarioFuncionamento;
     private List<Medicamento> listaMedicamentos;
+    private List<Avaliação> avaliacoes;
 
     public Farmacia(String nome, String endereco, String horarioFuncionamento) {
         this.nome = nome;
         this.endereco = endereco;
         this.horarioFuncionamento = horarioFuncionamento;
         this.listaMedicamentos = new ArrayList<>();
+        this.avaliacoes = new ArrayList<>();
+    }
+
+    public Farmacia() {
     }
 
     public String getNome() {
@@ -52,5 +57,17 @@ public class Farmacia {
 
     public void removerMedicamento(Medicamento medicamento) {
         listaMedicamentos.remove(medicamento);
+    }
+
+    public List<Avaliação> getAvaliacoes() {
+        return avaliacoes;
+    }
+
+    public void adicionarAvaliacao(Avaliação avaliacao) {
+        avaliacoes.add(avaliacao);
+    }
+
+    public void removerAvaliacao(Avaliação avaliacao) {
+        avaliacoes.remove(avaliacao);
     }
 }
