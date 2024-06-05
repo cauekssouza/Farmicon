@@ -19,10 +19,6 @@ public class Medicamento {
         return preco;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
     public Farmacia getFarmacia() {
         return farmacia;
     }
