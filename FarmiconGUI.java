@@ -1,23 +1,24 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.*;
 
 public class FarmiconGUI extends JFrame {
     private static final String FILE_PATH = "farmacias_data.txt";
-    private static List<Farmacia> farmacias = new ArrayList<>();
+    private static final List<Farmacia> farmacias = new ArrayList<>();
 
-    private JTextArea displayArea;
-    private JTextField nomeFarmaciaField;
-    private JTextField enderecoFarmaciaField;
-    private JTextField horarioFarmaciaField;
-    private JTextField nomeMedicamentoField;
-    private JTextField precoMedicamentoField;
-    private JTextField localizacaoMedicamentoField;
-    private JComboBox<Farmacia> farmaciaComboBox;
+    private final JTextArea displayArea;
+    private final JTextField nomeFarmaciaField;
+    private final JTextField enderecoFarmaciaField;
+    private final JTextField horarioFarmaciaField;
+    private final JTextField nomeMedicamentoField;
+    private final JTextField precoMedicamentoField;
+    private final JTextField localizacaoMedicamentoField;
+    private final JComboBox<Farmacia> farmaciaComboBox;
+    private final JTextArea avaliacaoTextArea;
+    private final JButton enviarComentarioButton;
 
     public FarmiconGUI() {
         setTitle("Farmicon");
@@ -75,31 +76,27 @@ public class FarmiconGUI extends JFrame {
 
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
+        JPanel comentarioPanel = new JPanel(new BorderLayout());
+        JLabel labelComentario = new JLabel("Avaliações e Comentários:");
+        comentarioPanel.add(labelComentario, BorderLayout.NORTH);
+
+        avaliacaoTextArea = new JTextArea(5, 20);
+        JScrollPane scrollPaneComentario = new JScrollPane(avaliacaoTextArea);
+        comentarioPanel.add(scrollPaneComentario, BorderLayout.CENTER);
+
+        enviarComentarioButton = new JButton("Enviar Avaliação/Comentário");
+        comentarioPanel.add(enviarComentarioButton, BorderLayout.SOUTH);
+
+        mainPanel.add(comentarioPanel, BorderLayout.EAST);
+
         add(mainPanel);
 
-        addFarmaciaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                adicionarFarmacia();
-            }
-        });
+        addFarmaciaButton.addActionListener((e) -> adicionarFarmacia());
+        addMedicamentoButton.addActionListener((e) -> adicionarMedicamento());
+        compararPrecosButton.addActionListener((e) -> compararPrecos());
+        enviarComentarioButton.addActionListener((e) -> enviarComentario());
 
-        addMedicamentoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                adicionarMedicamento();
-            }
-        });
-
-        compararPrecosButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                compararPrecos();
-            }
-        });
-
-        // Carregar dados ao iniciar o programa
-        carregarDados();
+        carregarDados(); // Carregar dados ao iniciar o programa
     }
 
     private void adicionarFarmacia() {
@@ -113,8 +110,8 @@ public class FarmiconGUI extends JFrame {
         }
 
         // Validar formato de horário 24h
-        if (!horario.matches("^([01]?[0-9]|2[0-3]):[0-5][0-9]$")) {
-            displayArea.append("Formato de horário inválido. Use HH:MM (24h).\n");
+        if (!horario.matches("^(?:[01]\\d|2[0-3]):[0-5]\\d$|^24:00$")) {
+            displayArea.append("Formato de horário inválido.\n");
             return;
         }
 
@@ -126,7 +123,7 @@ public class FarmiconGUI extends JFrame {
 
         nomeFarmaciaField.setText("");
         enderecoFarmaciaField.setText("");
-        horarioFarmaciaField.setText(horario);
+        horarioFarmaciaField.setText("");
 
         salvarDados();
     }
@@ -166,30 +163,39 @@ public class FarmiconGUI extends JFrame {
 
         nomeMedicamentoField.setText("");
         precoMedicamentoField.setText("");
-        localizacaoMedicamentoField.setText(localizacao);
+        localizacaoMedicamentoField.setText("");
 
         salvarDados();
     }
 
     private void compararPrecos() {
-        displayArea.append("--- Comparação de Preços ---\n");
-
-        for (Farmacia farmacia1 : farmacias) {
-            for (Farmacia farmacia2 : farmacias) {
-                if (!farmacia1.equals(farmacia2)) {
-                    for (Medicamento medicamento1 : farmacia1.getListaMedicamentos()) {
-                        for (Medicamento medicamento2 : farmacia2.getListaMedicamentos()) {
-                            if (medicamento1.getNome().equals(medicamento2.getNome())) {
-                                displayArea.append("Medicamento: " + medicamento1.getNome() + "\n");
-                                displayArea.append("Preço " + farmacia1.getNome() + ": R$" + medicamento1.getPreco() + "\n");
-                                displayArea.append("Preço " + farmacia2.getNome() + ": R$" + medicamento2.getPreco() + "\n");
-                                displayArea.append("Diferença de preço: R$" + Math.abs(medicamento1.getPreco() - medicamento2.getPreco()) + "\n");
-                            }
-                        }
-                    }
-                }
+        displayArea.setText("--- Dados Registrados ---\n");
+        for (Farmacia farmacia : farmacias) {
+            displayArea.append("Farmácia: " + farmacia.getNome() + ", Endereço: " + farmacia.getEndereco() + ", Horário: " + farmacia.getHorario() + "\n");
+            for (Medicamento medicamento : farmacia.getListaMedicamentos()) {
+                displayArea.append("   Medicamento: " + medicamento.getNome() + ", Preço: R$" + medicamento.getPreco() + ", Localização: " + medicamento.getLocalizacao() + "\n");
             }
+            displayArea.append("\n");
         }
+    }
+
+    private void enviarComentario() {
+        String comentario = avaliacaoTextArea.getText();
+        if (comentario.isEmpty()) {
+            displayArea.append("Digite um comentário antes de enviar.\n");
+            return;
+        }
+        // Limitando comentários a 100 caracteres
+        if (comentario.length() > 100) {
+            displayArea.append("Comentário excede o limite de 100 caracteres.\n");
+            enviarComentarioButton.setEnabled(false); // Desativa o botão após atingir o limite
+            return;
+        }
+
+        displayArea.append("Comentário enviado: " + comentario + "\n");
+
+        // Limpar o campo de texto após enviar o comentário
+        avaliacaoTextArea.setText("");
     }
 
     private void carregarDados() {
@@ -216,10 +222,16 @@ public class FarmiconGUI extends JFrame {
                     double preco = Double.parseDouble(parts[1]);
                     String localizacao = parts[2];
                     String nomeFarmacia = parts[3];
-                    Farmacia farmacia = buscarFarmacia(nomeFarmacia);
-                    if (farmacia != null) {
-                        Medicamento medicamento = new Medicamento(nome, preco, farmacia, localizacao);
-                        farmacia.adicionarMedicamento(medicamento);
+                    Farmacia farmaciaEncontrada = null;
+                    for (Farmacia farmacia : farmacias) {
+                        if (farmacia.getNome().equals(nomeFarmacia)) {
+                            farmaciaEncontrada = farmacia;
+                            break;
+                        }
+                    }
+                    if (farmaciaEncontrada != null) {
+                        Medicamento medicamento = new Medicamento(nome, preco, farmaciaEncontrada, localizacao);
+                        farmaciaEncontrada.adicionarMedicamento(medicamento);
                         displayArea.append("Medicamento carregado: " + nome + " na farmácia " + nomeFarmacia + "\n");
                     } else {
                         displayArea.append("Farmácia não encontrada para o medicamento: " + nome + "\n");
@@ -228,47 +240,31 @@ public class FarmiconGUI extends JFrame {
             }
         } catch (IOException | NumberFormatException e) {
             displayArea.append("Erro ao carregar o arquivo de dados.\n");
-            e.printStackTrace();
         }
     }
 
-    private Farmacia buscarFarmacia(String nome) {
-        for (Farmacia farmacia : farmacias) {
-            if (farmacia.getNome().equals(nome)) {
-                return farmacia;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * 
-     */
     private void salvarDados() {
         File file = new File(FILE_PATH);
         try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
             for (Farmacia farmacia : farmacias) {
                 writer.println(farmacia.getNome() + "," + farmacia.getEndereco() + "," + farmacia.getHorario());
-    
+
                 for (Medicamento medicamento : farmacia.getListaMedicamentos()) {
                     writer.println(medicamento.getNome() + "," + medicamento.getPreco() + "," + medicamento.getLocalizacao() + "," + farmacia.getNome());
                 }
             }
             displayArea.append("Dados salvos com sucesso.\n");
-    
+
         } catch (IOException e) {
             displayArea.append("Erro ao salvar os dados.\n");
-            e.printStackTrace();
         }
     }
-    
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new FarmiconGUI().setVisible(true);
-            }
+        SwingUtilities.invokeLater(() -> {
+            new FarmiconGUI().setVisible(true);
         });
     }
 }
+
 
