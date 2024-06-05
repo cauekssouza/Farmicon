@@ -1,9 +1,12 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.*;
 
 public class FarmiconGUI extends JFrame {
     private static List<Farmacia> farmacias = new ArrayList<>();
@@ -48,7 +51,7 @@ public class FarmiconGUI extends JFrame {
         nomeMedicamentoField = new JTextField();
         inputPanel.add(nomeMedicamentoField);
 
-        inputPanel.add(new JLabel("Preço do Medicamento:"));
+        inputPanel.add(new JLabel("Preço do Medicamento:")); // exemplo: 5.00
         precoMedicamentoField = new JTextField();
         inputPanel.add(precoMedicamentoField);
 
@@ -64,7 +67,7 @@ public class FarmiconGUI extends JFrame {
 
         JPanel buttonPanel = new JPanel(new GridLayout(1, 3, 5, 5));
         JButton addFarmaciaButton = new JButton("Adicionar Farmácia");
-        JButton addMedicamentoButton = new JButton("Adicionar Medicamento");
+        JButton addMedicamentoButton = new JButton("Adicionar Medicamento"); // Seria para encerrar o programa mas precisa está preenchido todas aréas
         JButton compararPrecosButton = new JButton("Comparar Preços");
 
         buttonPanel.add(addFarmaciaButton);
@@ -115,42 +118,64 @@ public class FarmiconGUI extends JFrame {
 
     private void adicionarMedicamento() {
         String nome = nomeMedicamentoField.getText();
-        double preco = Double.parseDouble(precoMedicamentoField.getText());
+        String precoText = precoMedicamentoField.getText();
         String localizacao = localizacaoMedicamentoField.getText();
         Farmacia farmacia = (Farmacia) farmaciaComboBox.getSelectedItem();
-
-        if (farmacia != null) {
-            Medicamento medicamento = new Medicamento(nome, preco, farmacia, localizacao);
-            farmacia.adicionarMedicamento(medicamento);
-
-            displayArea.append("Medicamento adicionado: " + nome + " na farmácia " + farmacia.getNome() + "\n");
-
-            nomeMedicamentoField.setText("");
-            precoMedicamentoField.setText("");
-            localizacaoMedicamentoField.setText("");
-        } else {
-            displayArea.append("Selecione uma farmácia.\n");
+    
+        if (nome.isEmpty() || precoText.isEmpty() || localizacao.isEmpty() || farmacia == null) {
+            displayArea.append("Preencha todos os campos e selecione uma farmácia.\n");
+            return;
         }
+    
+        double preco;
+        try {
+            preco = Double.parseDouble(precoText);
+        } catch (NumberFormatException e) {
+            displayArea.append("Preço inválido. Por favor, insira um número.\n");
+            return;
+        }
+    
+        Medicamento medicamento = new Medicamento(nome, preco, farmacia, localizacao);
+        farmacia.adicionarMedicamento(medicamento);
+    
+        displayArea.append("Medicamento adicionado: " + nome + " na farmácia " + farmacia.getNome() + "\n");
+    
+        nomeMedicamentoField.setText("");
+        precoMedicamentoField.setText("");
+        localizacaoMedicamentoField.setText("");
     }
+    
 
     private void compararPrecos() {
         displayArea.append("--- Comparação de Preços ---\n");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("comparacao_precos.txt"))) {
+            writer.write("--- Comparação de Preços ---\n");
 
-        for (Farmacia farmacia1 : farmacias) {
-            for (Farmacia farmacia2 : farmacias) {
-                if (!farmacia1.equals(farmacia2)) {
-                    for (Medicamento medicamento1 : farmacia1.getListaMedicamentos()) {
-                        for (Medicamento medicamento2 : farmacia2.getListaMedicamentos()) {
-                            if (medicamento1.getNome().equals(medicamento2.getNome())) {
-                                displayArea.append("Medicamento: " + medicamento1.getNome() + "\n");
-                                displayArea.append("Preço " + farmacia1.getNome() + ": R$" + medicamento1.getPreco() + "\n");
-                                displayArea.append("Preço " + farmacia2.getNome() + ": R$" + medicamento2.getPreco() + "\n");
-                                displayArea.append("Diferença de preço: R$" + Math.abs(medicamento1.getPreco() - medicamento2.getPreco()) + "\n");
+            for (Farmacia farmacia1 : farmacias) {
+                for (Farmacia farmacia2 : farmacias) {
+                    if (!farmacia1.equals(farmacia2)) {
+                        for (Medicamento medicamento1 : farmacia1.getListaMedicamentos()) {
+                            for (Medicamento medicamento2 : farmacia2.getListaMedicamentos()) {
+                                if (medicamento1.getNome().equals(medicamento2.getNome())) {
+                                    String comparacao = "Medicamento: " + medicamento1.getNome() + "\n" +
+                                            "Preço " + farmacia1.getNome() + ": R$" + medicamento1.getPreco() + "\n" +
+                                            "Preço " + farmacia2.getNome() + ": R$" + medicamento2.getPreco() + "\n" +
+                                            "Diferença de preço: R$" + Math.abs(medicamento1.getPreco() - medicamento2.getPreco()) + "\n";
+
+                                    displayArea.append(comparacao);
+                                    writer.write(comparacao);
+                                }
                             }
                         }
                     }
                 }
             }
+
+            writer.write("--- Fim da Comparação ---\n");
+            displayArea.append("--- Fim da Comparação ---\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+            displayArea.append("Erro ao escrever no arquivo.\n");
         }
     }
 
