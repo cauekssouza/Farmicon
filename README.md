@@ -3,11 +3,11 @@
 
 # Farmicon: Sua Fonte de Economia em Medicamentos em Curitiba
 
-## Descrição do Programa
+## Descrição do Programa :hospital: :pill:
 
 O Farmicon é um software projetado para simplificar a busca por medicamentos com os melhores preços em Curitiba. Permitindo aos moradores comparar facilmente os preços de medicamentos em diversas farmácias, o Farmicon torna mais simples encontrar opções mais acessíveis e economizar dinheiro.
 
-## Funcionalidades
+## Funcionalidades :hospital: :pill:
 
 ### Comparação de Preços
 
@@ -29,7 +29,7 @@ Os usuários podem deixar avaliações e comentários sobre as farmácias e os p
 
 Os preços são regularmente atualizados para garantir que as informações fornecidas aos usuários sejam precisas e atualizadas.
 
-## Como Usar
+## Como Usar :pill:
 
 1. **Pesquisa:**
    - Insira o nome do medicamento na barra de pesquisa para encontrar as opções disponíveis.
@@ -43,7 +43,7 @@ Os preços são regularmente atualizados para garantir que as informações forn
 4. **Comparação de Preços:**
    - Compare os custos do medicamento em diferentes farmácias e determine qual oferece a opção mais econômica.
 
-## Conclusão
+## Conclusão :pill:
 
 Com o Farmicon, economizar em medicamentos nunca foi tão fácil. Experimente hoje mesmo e descubra as melhores ofertas em sua área!
 
