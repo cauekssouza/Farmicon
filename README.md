@@ -1,4 +1,4 @@
-# PJBL6 :computer: :pill: :hospital:
+# PJBL6 :computer: :pill: :hospital: ## O programa certo está no FarmiconGUI.java
 # Farmicon
 
 O Farmicon é uma aplicação Java desenvolvida para ajudar usuários a comparar preços de medicamentos em diversas farmácias localizadas em Curitiba. Este programa oferece funcionalidades para gerenciar informações sobre farmácias e seus respectivos medicamentos, permitindo aos usuários tomar decisões informadas com base em preços atualizados e localizações convenientes.
