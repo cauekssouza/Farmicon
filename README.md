@@ -1,55 +1,49 @@
 # PJBL6 :computer: :pill: :hospital:
-## Farmicon: Sua Fonte de Economia em Medicamentos em Curitiba: :man_student:  :pill:
+# Farmicon
 
-# Farmicon: Sua Fonte de Economia em Medicamentos em Curitiba
+O Farmicon é uma aplicação Java desenvolvida para ajudar usuários a comparar preços de medicamentos em diversas farmácias localizadas em Curitiba. Este programa oferece funcionalidades para gerenciar informações sobre farmácias e seus respectivos medicamentos, permitindo aos usuários tomar decisões informadas com base em preços atualizados e localizações convenientes.
 
-## Descrição do Programa :hospital: :pill:
-
- - O Farmicon é um software projetado para simplificar a busca por medicamentos com os melhores preços em Curitiba. Permitindo aos moradores comparar facilmente os preços de medicamentos em diversas farmácias, o Farmicon torna mais simples encontrar opções mais acessíveis e economizar dinheiro.
-
-- É uma aplicação em  Java que permite aos usuários comparar preços de medicamentos em várias farmácias de Curitiba, além de fornecer informações detalhadas sobre as farmácias cadastradas e seus medicamentos.
-
-## Funcionalidades Principais :hospital: :pill:
+## Funcionalidades Principais
 
 ### Comparação de Preços
 
-Os usuários podem comparar os preços de medicamentos disponíveis em diferentes farmácias através do botão "Comparar Preços". A funcionalidade exibe informações como nome do medicamento, preço e localização em um painel de texto na interface do programa.
+Os usuários podem comparar os preços de medicamentos disponíveis em diferentes farmácias cadastradas no sistema. A funcionalidade de comparação exibe detalhes como nome do medicamento, preço e localização em cada farmácia, ajudando os usuários a encontrar a opção mais econômica.
 
 ### Identificação de Farmácias
 
-As farmácias cadastradas são identificadas pelo nome, endereço completo e horário de funcionamento. Essas informações são carregadas automaticamente a partir do arquivo de dados `dados_farmacias.txt` quando o programa é iniciado.
+Para cada farmácia cadastrada, o Farmicon exibe informações detalhadas, incluindo nome, endereço completo e horário de funcionamento. Esses dados são carregados a partir de um arquivo de dados local para garantir precisão e atualização das informações exibidas na interface.
 
 ### Filtragem por Localização
 
-Para facilitar a busca por farmácias próximas, os usuários podem filtrar as opções baseadas na localização do medicamento antes de adicionar um novo medicamento. Isso melhora a conveniência na escolha da farmácia mais próxima.
+Os usuários podem filtrar as farmácias por localização, selecionando uma opção no campo "Localização do Medicamento" antes de adicionar um novo medicamento. Isso facilita encontrar farmácias próximas aos usuários, proporcionando maior conveniência na escolha do local de compra.
 
 ### Avaliações e Comentários
 
-Os usuários podem deixar avaliações e comentários sobre as farmácias e os preços dos medicamentos usando o campo de texto disponível na interface. Esses comentários são exibidos ao lado das informações da farmácia, permitindo compartilhar experiências e ajudar outros usuários.
+Os usuários têm a possibilidade de deixar avaliações e comentários sobre as farmácias e os preços dos medicamentos. Esses comentários são exibidos na interface ao lado das informações da farmácia, permitindo aos usuários compartilhar suas experiências e contribuir para uma comunidade informada.
 
 ### Atualização de Preços
 
-Os preços dos medicamentos são armazenados e atualizados regularmente no arquivo `dados_farmacias.txt`. Após cada modificação (adicionar ou alterar um medicamento), os dados são automaticamente salvos para garantir precisão e atualização das informações exibidas.
+Os preços dos medicamentos são armazenados e atualizados regularmente no Farmicon. Após adicionar ou modificar um medicamento, os dados são automaticamente salvos em um arquivo local ("dados_farmacias.txt"), garantindo que as informações exibidas aos usuários sejam sempre precisas e atualizadas.
 
+## Como Usar
 
-## Como Usar 💊
-
-1. **Pesquisa:**
+1. **Pesquisa de Medicamentos:**
    - Insira o nome do medicamento na barra de pesquisa para encontrar as opções disponíveis.
 
 2. **Filtragem por Localização:**
    - Os usuários podem filtrar as farmácias por localização para encontrar aquelas próximas a eles, garantindo conveniência na escolha.
 
-3. **Obter Informações Detalhadas:**
-   - Visualize informações detalhadas sobre as farmácias, como endereço, horário de funcionamento, etc., para tomar uma decisão informada.
+3. **Visualização de Informações Detalhadas:**
+   - Visualize informações detalhadas sobre as farmácias, incluindo endereço e horário de funcionamento, para tomar uma decisão informada.
 
 4. **Comparação de Preços:**
    - Compare os custos do medicamento em diferentes farmácias e determine qual oferece a opção mais econômica.
-## Conclusão :pill:
 
-Com o Farmicon, economizar em medicamentos nunca foi tão fácil. Experimente hoje mesmo e descubra as melhores ofertas em sua área!
+5. **Avaliações e Comentários:**
+   - Deixe avaliações e comentários sobre as farmácias e os preços dos medicamentos para compartilhar suas experiências com outros usuários.
 
-
+6. **Atualização de Dados:**
+   - Os dados, incluindo preços de medicamentos e informações de farmácias, são regularmente atualizados para garantir precisão e relevância.
 
 
 
