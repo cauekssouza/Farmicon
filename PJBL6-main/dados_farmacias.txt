@@ -1,4 +1,0 @@
-Panvel,Centro,15:00
-Diprona,50.0,Centro,Panvel
-Diprona,120.0,Avenida Brasil,Panvel
-Droga Raia,Avenida Brasil,15:00
